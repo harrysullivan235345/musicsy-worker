@@ -4,7 +4,8 @@ var express = require('express'),
     morgan  = require('morgan'),
     youtube_dl = require('youtube-dl'),
     os = require('os'),
-    axios = require('axios');
+    axios = require('axios'),
+    fs = require('fs');
     
 Object.assign=require('object-assign')
 
