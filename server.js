@@ -129,10 +129,7 @@ app.post('/url_to_src', async (req, res) => {
 })
 
 app.get('/memory_usage', (req, res) => {
-  res.json({
-    free: os.freemem(),
-    total: os.totalmem()
-  });
+  res.json(process.memoryUsage());
 })
 
 // error handling
