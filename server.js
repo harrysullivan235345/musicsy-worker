@@ -2,7 +2,8 @@
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan'),
-    youtube_dl = require('youtube-dl');
+    youtube_dl = require('youtube-dl'),
+    os = require('os');
     
 Object.assign=require('object-assign')
 
@@ -128,7 +129,10 @@ app.post('/url_to_src', async (req, res) => {
 })
 
 app.get('/memory_usage', (req, res) => {
-  res.json(process.memoryUsage());
+  res.json({
+    free: os.freemem(),
+    total: os.totalmem()
+  });
 })
 
 // error handling
