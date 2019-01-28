@@ -127,6 +127,10 @@ app.post('/url_to_src', async (req, res) => {
   res.json({ src: src });
 })
 
+app.get('/memory_usage', (req, res) => {
+  res.json(process.memoryUsage());
+})
+
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
