@@ -6,6 +6,10 @@ var express = require('express'),
     os = require('os'),
     axios = require('axios'),
     fs = require('fs');
+
+const mongoose = require('mongoose');
+
+var save_file = require('./save_file');
     
 Object.assign=require('object-assign')
 
@@ -56,6 +60,11 @@ if (mongoURL == null) {
     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
   }
 }
+
+mongoose.connect("mongodb://musicsy-system:CabfongAgEijIk5@ds133252.mlab.com:33252/musicsy", { useNewUrlParser: true }, () => {
+    console.log('Connected to mongodb');
+  });
+
 var db = null,
     dbDetails = new Object();
 
@@ -129,6 +138,31 @@ app.post('/url_to_src', async (req, res) => {
   });
   var obj = await get_src;
   res.json({ src: obj.url, filesize: obj.filesize });
+})
+
+app.post('/save_file', async (req, res) => {
+  res.json({ status: 'processing' });
+  var filename = await save_file.save(req.body.src, req.body.filesize);
+
+  const Schema = mongoose.Schema;
+
+  const trackSchema = new Schema({
+    thumbnail: String,
+    name: String,
+    artist: String,
+    date_added: String,
+    duration: Number,
+    is_explicit: Boolean,
+    src: String
+  });
+
+  const Track = mongoose.model('track', trackSchema);
+
+  var get_track = Track.findById(req.body.track_id);
+  var track = await get_track.exec();
+
+  track.src = `http://musicsy-cdn.epizy.com/data/${filename}.m4a`;
+  var updated_track = await track.save();
 })
 
 app.get('/memory_usage', (req, res) => {

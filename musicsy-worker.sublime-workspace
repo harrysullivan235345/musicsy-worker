@@ -239,7 +239,7 @@
 			"file": "server.js",
 			"settings":
 			{
-				"buffer_size": 4532,
+				"buffer_size": 5014,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -295,12 +295,10 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/Users/adity/Desktop/Programs/musicsy-worker"
-	],
 	"file_history":
 	[
+		"/C/Users/adity/Desktop/Programs/musicsy-worker/public/holder.txt",
+		"/C/Users/adity/Desktop/Programs/musicsy-worker/package.json",
 		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/processes/track/lyrics_video.js",
 		"/C/Users/adity/Desktop/Programs/musicsy-2.0/package.json",
 		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/processes/track/y_search.js",
@@ -387,6 +385,12 @@
 		"whole_word": false,
 		"wrap": true
 	},
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
 	"groups":
 	[
 		{
@@ -399,15 +403,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4532,
+						"buffer_size": 5014,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								220,
-								220
+								4066,
+								4066
 							]
 						],
 						"settings":
@@ -417,7 +421,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3124.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
