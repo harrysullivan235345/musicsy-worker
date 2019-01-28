@@ -143,7 +143,7 @@ app.post('/save_file', async (req, res) => {
   })
     .then(function (response) {
       var filename = `${String(Math.random()).slice(3,8)}.m4a`;
-      response.data.pipe(fs.createWriteStream(`public/${filename}`));
+      response.data.pipe(fs.createWriteStream(`./public/${filename}`));
       res.json({ filename: filename });
     });
 })
