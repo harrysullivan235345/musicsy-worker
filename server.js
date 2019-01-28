@@ -3,12 +3,14 @@ var express = require('express'),
     app     = express(),
     morgan  = require('morgan'),
     youtube_dl = require('youtube-dl'),
-    os = require('os');
+    os = require('os'),
+    axios = require('axios');
     
 Object.assign=require('object-assign')
 
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
+app.use(express.static('public'))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -130,6 +132,19 @@ app.post('/url_to_src', async (req, res) => {
 
 app.get('/memory_usage', (req, res) => {
   res.json(process.memoryUsage());
+});
+
+app.post('/save_file', async (req, res) => {
+  axios({
+    method:'get',
+    url: req.body.src,
+    responseType:'stream'
+  })
+    .then(function (response) {
+      var filename = `${String(Math.random()).slice(3,8)}.m4a`;
+      response.data.pipe(fs.createWriteStream(`public/${filename}`));
+      res.json({ filename: filename });
+    });
 })
 
 // error handling
