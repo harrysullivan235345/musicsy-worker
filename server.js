@@ -124,11 +124,11 @@ app.post('/url_to_src', async (req, res) => {
       var m4as = formats.filter((format) => {
         return format.ext === "m4a"
       })
-      resolve(m4as[0].url);
+      resolve(m4as[0]);
     });
   });
-  var src = await get_src;
-  res.json({ src: src });
+  var obj = await get_src;
+  res.json({ src: obj.url, filesize: obj.filesize });
 })
 
 app.get('/memory_usage', (req, res) => {
