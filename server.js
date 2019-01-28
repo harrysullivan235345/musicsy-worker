@@ -114,7 +114,7 @@ app.get('/pagecount', function (req, res) {
 
 app.post('/url_to_src', (req, res) => {
   var get_src = new Promise(function(resolve, reject) {
-    youtube_dl.getInfo(url, [], function (err, info) {
+    youtube_dl.getInfo(req.body.url, [], function (err, info) {
       if (err) reject(err);
       var formats = info.formats;
       var m4as = formats.filter((format) => {
