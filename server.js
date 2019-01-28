@@ -112,7 +112,7 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
-app.post('/url_to_src', (req, res) => {
+app.post('/url_to_src', async (req, res) => {
   var get_src = new Promise(function(resolve, reject) {
     youtube_dl.getInfo(req.body.url, [], function (err, info) {
       if (err) reject(err);
