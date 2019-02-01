@@ -6,10 +6,10 @@
   "dependencies": {
     "axios": "*",
     "chai": "^3.5.0",
-    "chai-http": "^4.2.1",
+    "chai-http": "^2.0.1",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
-    "mocha": "^5.2.0",
+    "mocha": "^2.4.5",
     "mongodb": "^2.1.16",
     "mongoose": "*",
     "morgan": "^1.7.0",
