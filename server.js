@@ -173,7 +173,7 @@ app.get('/memory_usage', (req, res) => {
 });
 
 app.get('/update_srcs', async (req, res) => {
-  console.log('here');
+
   async function get_src(lyrics_url) {
     var get_url_promise = new Promise((resolve, reject) => {
       ytdl.getInfo(lyrics_url, function (err, info) {
@@ -188,14 +188,7 @@ app.get('/update_srcs', async (req, res) => {
         }
       })
     })
-    var valid = false;
-    var src = "";
-    while (!valid) {
-      src = await get_url_promise;
-      var xhr = await axios.get(src);
-      console.log(lyrics_url);
-      valid = xhr.status !== 403;
-    }
+    var src = await get_url_promise;
     return src;
   }
 
