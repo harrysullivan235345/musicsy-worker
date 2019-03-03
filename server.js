@@ -159,7 +159,7 @@ const Track = mongoose.model('track', trackSchema);
 
 app.post('/save_file', async (req, res) => {
   res.json({ status: 'processing' });
-  var filename = await save_file.save(req.body.src, req.body.filesize);
+  var filename = await save_file.save(req.body.src);
 
   var get_track = Track.findById(req.body.track_id);
   var track = await get_track.exec();
