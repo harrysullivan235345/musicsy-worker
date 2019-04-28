@@ -11,6 +11,7 @@ var express = require('express'),
 var sleep = require('sleep-promise');
 
 var ytdl = require('ytdl-core');
+var axios = require('axios');
 
 const mongoose = require('mongoose');
 
@@ -200,6 +201,11 @@ app.get('/update_srcs', async (req, res) => {
   async function get_src(lyrics_url) {
     var get_url_promise = new Promise((resolve, reject) => {
       ytdl.getInfo(lyrics_url, function(err, info) {
+        if (!info) {
+          resolve(null);
+          return null;
+        }
+
         var filtered = info.formats.filter((version) => {
           return version.container === 'm4a';
         })
@@ -217,7 +223,7 @@ app.get('/update_srcs', async (req, res) => {
 
   async function update_srcs_in_db(data) {
     var update = data.map(async function(track) {
-      return await Track.findByIdAndUpdate(track.id, {
+      return await Track.findByIdAndUpdate(track._id, {
         src: track.src,
         clean_src: track.clean_src,
       });
@@ -237,6 +243,33 @@ app.get('/update_srcs', async (req, res) => {
   var data = tracks.map(async (track) => {
     var src = await get_src(`https://www.youtube.com/watch?v=${track.yt_id}`);
     var clean_src = await get_src(`https://www.youtube.com/watch?v=${track.clean_yt_id}`);
+
+    if (src === null || clean_src === null) {
+      var xhr = await axios.post('https://musicsy.herokuapp.com/api/track/add', {
+        track_name: track.track_name,
+        artist: track.artist,
+        tags: track.tags,
+        thumbnail: track.thumbnail,
+        is_explicit: track.is_explicit
+      })
+
+      var track_id = xhr.data.track._id;
+      var newly_added_track = await Track.findById(track_id);
+      var newly_added_track_src = newly_added_track.src;
+      var newly_added_track_clean_src = newly_added_track.clean_src;
+      var newly_added_track_yt_id = newly_added_track.yt_id;
+      var newly_added_track_clean_yt_id = newly_added_track.clean_yt_id;
+
+      var this_track = await Track.findById(track._id);
+      this_track.src = newly_added_track_src;
+      this_track.clean_src = newly_added_track_clean_src;
+      this_track.yt_id = newly_added_track_yt_id;
+      this_track.clean_yt_id = newly_added_track_clean_yt_id;
+      await this_track.save();
+      await Track.findByIdAndRemove(newly_added_track._id);
+      return null;
+    }
+
     return {
       src: src,
       clean_src: clean_src,
@@ -244,7 +277,9 @@ app.get('/update_srcs', async (req, res) => {
     }
   })
 
-  var data = await Promise.all(data);
+  data = await Promise.all(data);
+  data = data.filter(d => d !== null);
+
   var done = await update_srcs_in_db(data);
 
   res.json('hi');
