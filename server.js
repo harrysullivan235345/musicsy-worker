@@ -7,6 +7,9 @@ var express = require('express'),
   axios = require('axios'),
   fs = require('fs');
 
+
+var sleep = require('sleep-promise');
+
 var ytdl = require('ytdl-core');
 
 const mongoose = require('mongoose');
@@ -19,7 +22,9 @@ app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 app.use(express.static('public'))
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
   ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
@@ -63,20 +68,22 @@ if (mongoURL == null) {
   }
 }
 
-mongoose.connect("mongodb://musicsy-system:CabfongAgEijIk5@ds133252.mlab.com:33252/musicsy", { useNewUrlParser: true }, () => {
+mongoose.connect("mongodb://musicsy-system:CabfongAgEijIk5@ds133252.mlab.com:33252/musicsy", {
+  useNewUrlParser: true
+}, () => {
   console.log('Connected to mongodb');
 });
 
 var db = null,
   dbDetails = new Object();
 
-var initDb = function (callback) {
+var initDb = function(callback) {
   if (mongoURL == null) return;
 
   var mongodb = require('mongodb');
   if (mongodb == null) return;
 
-  mongodb.connect(mongoURL, function (err, conn) {
+  mongodb.connect(mongoURL, function(err, conn) {
     if (err) {
       callback(err);
       return;
@@ -91,35 +98,43 @@ var initDb = function (callback) {
   });
 };
 
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
   if (!db) {
-    initDb(function (err) { });
+    initDb(function(err) {});
   }
   if (db) {
     var col = db.collection('counts');
     // Create a document with request IP and current time of request
-    col.insert({ ip: req.ip, date: Date.now() });
-    col.count(function (err, count) {
+    col.insert({
+      ip: req.ip,
+      date: Date.now()
+    });
+    col.count(function(err, count) {
       if (err) {
         console.log('Error running count. Message:\n' + err);
       }
-      res.render('index.html', { pageCountMessage: count, dbInfo: dbDetails });
+      res.render('index.html', {
+        pageCountMessage: count,
+        dbInfo: dbDetails
+      });
     });
   } else {
-    res.render('index.html', { pageCountMessage: null });
+    res.render('index.html', {
+      pageCountMessage: null
+    });
   }
 });
 
-app.get('/pagecount', function (req, res) {
+app.get('/pagecount', function(req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
   if (!db) {
-    initDb(function (err) { });
+    initDb(function(err) {});
   }
   if (db) {
-    db.collection('counts').count(function (err, count) {
+    db.collection('counts').count(function(err, count) {
       res.send('{ pageCount: ' + count + '}');
     });
   } else {
@@ -128,8 +143,8 @@ app.get('/pagecount', function (req, res) {
 });
 
 app.post('/url_to_src', async (req, res) => {
-  var get_src = new Promise(function (resolve, reject) {
-    youtube_dl.getInfo(req.body.url, [], function (err, info) {
+  var get_src = new Promise(function(resolve, reject) {
+    youtube_dl.getInfo(req.body.url, [], function(err, info) {
       if (err) reject(err);
       var formats = info.formats;
       var m4as = formats.filter((format) => {
@@ -139,26 +154,34 @@ app.post('/url_to_src', async (req, res) => {
     });
   });
   var obj = await get_src;
-  res.json({ src: obj.url, filesize: obj.filesize });
+  res.json({
+    src: obj.url,
+    filesize: obj.filesize
+  });
 })
 
 const Schema = mongoose.Schema;
 
 const trackSchema = new Schema({
   thumbnail: String,
-  name: String,
+  track_name: String,
   artist: String,
   date_added: String,
+  tags: Array,
   duration: Number,
   is_explicit: Boolean,
   yt_id: String,
-  src: String
+  clean_yt_id: String,
+  src: String,
+  clean_src: String,
 });
 
 const Track = mongoose.model('track', trackSchema);
 
 app.post('/save_file', async (req, res) => {
-  res.json({ status: 'processing' });
+  res.json({
+    status: 'processing'
+  });
   var filename = await save_file.save(req.body.src);
 
   var get_track = Track.findById(req.body.track_id);
@@ -176,7 +199,7 @@ app.get('/update_srcs', async (req, res) => {
 
   async function get_src(lyrics_url) {
     var get_url_promise = new Promise((resolve, reject) => {
-      ytdl.getInfo(lyrics_url, function (err, info) {
+      ytdl.getInfo(lyrics_url, function(err, info) {
         var filtered = info.formats.filter((version) => {
           return version.container === 'm4a';
         })
@@ -193,14 +216,17 @@ app.get('/update_srcs', async (req, res) => {
   }
 
   async function update_srcs_in_db(data) {
-    var update = data.map(async function (track) {
-      return await Track.findByIdAndUpdate(track.id, { src: track.src });
+    var update = data.map(async function(track) {
+      return await Track.findByIdAndUpdate(track.id, {
+        src: track.src,
+        clean_src: track.clean_src,
+      });
     });
     return await Promise.all(update);
   }
 
-  var promise = new Promise(function (resolve, reject) {
-    Track.find({}, function (err, docs) {
+  var promise = new Promise(function(resolve, reject) {
+    Track.find({}, function(err, docs) {
       // console.log(docs);
       resolve(docs);
     })
@@ -210,8 +236,10 @@ app.get('/update_srcs', async (req, res) => {
 
   var data = tracks.map(async (track) => {
     var src = await get_src(`https://www.youtube.com/watch?v=${track.yt_id}`);
+    var clean_src = await get_src(`https://www.youtube.com/watch?v=${track.clean_yt_id}`);
     return {
       src: src,
+      clean_src: clean_src,
       id: track._id
     }
   })
@@ -240,12 +268,12 @@ app.get('/update_srcs', async (req, res) => {
 // })
 
 // error handling
-app.use(function (err, req, res, next) {
+app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500).send('Something bad happened!');
 });
 
-initDb(function (err) {
+initDb(function(err) {
   console.log('Error connecting to Mongo. Message:\n' + err);
 });
 
