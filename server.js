@@ -305,7 +305,7 @@ app.get('/update_srcs', async (req, res) => {
 
     var tracks = await promise;
 
-    var chunked = tracks.chunk(1);
+    var chunked = tracks.chunk(3);
 
     for (var i = 0; i < chunked.length; i++) {
         var data = chunked[i].map(async (track) => {
@@ -349,7 +349,7 @@ app.get('/update_srcs', async (req, res) => {
         data = data.filter(d => d !== null);
 
         var done = await update_srcs_in_db(data);
-        await sleep(250)
+        await sleep(150)
     }
 
     res.json('hi');
