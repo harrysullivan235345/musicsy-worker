@@ -219,7 +219,7 @@ app.get('/update_srcs', async (req, res) => {
 
     var tracks = await promise;
 
-    var chunked = tracks.chunk(2);
+    var chunked = tracks.chunk(3);
 
     for (var i = 0; i < chunked.length; i++) {
         var data = chunked[i].map(async (track) => {
