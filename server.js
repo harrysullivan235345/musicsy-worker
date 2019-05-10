@@ -82,6 +82,10 @@ mongoose.connect("mongodb://musicsy-system:CabfongAgEijIk5@ds133252.mlab.com:332
     console.log('Connected to mongodb');
 });
 
+function sleep(millis) {
+  return new Promise(resolve => setTimeout(resolve, millis));
+}
+
 var db = null,
     dbDetails = new Object();
 
@@ -291,6 +295,7 @@ app.get('/update_srcs', async (req, res) => {
         data = data.filter(d => d !== null);
 
         var done = await update_srcs_in_db(data);
+        await sleep(1000)
     }
 
     res.json('hi');
