@@ -295,7 +295,7 @@ app.get('/update_srcs', async (req, res) => {
         data = data.filter(d => d !== null);
 
         var done = await update_srcs_in_db(data);
-        await sleep(500)
+        await sleep(250)
     }
 
     res.json('hi');
