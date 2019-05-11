@@ -75,7 +75,7 @@ mongoose.connect("mongodb://musicsy-system:CabfongAgEijIk5@ds133252.mlab.com:332
 });
 
 function sleep(millis) {
-  return new Promise(resolve => setTimeout(resolve, millis));
+    return new Promise(resolve => setTimeout(resolve, millis));
 }
 
 var db = null,
@@ -184,6 +184,8 @@ app.get('/memory_usage', (req, res) => {
 });
 
 app.get('/update_srcs', async (req, res) => {
+    var _d = new Date();
+    res.json(`hi at ${_d.toString()}`);
 
     async function get_src(lyrics_url) {
         var get_url_promise = new Promise((resolve, reject) => {
@@ -219,7 +221,7 @@ app.get('/update_srcs', async (req, res) => {
 
     var tracks = await promise;
 
-    var chunked = tracks.chunk(3);
+    var chunked = tracks.chunk(2);
 
     for (var i = 0; i < chunked.length; i++) {
         var data = chunked[i].map(async (track) => {
@@ -231,9 +233,8 @@ app.get('/update_srcs', async (req, res) => {
         })
         var data = await Promise.all(data);
         var done = await update_srcs_in_db(data);
-        await sleep(200)
+        await sleep(390)
     }
-    res.json('hi');
 
     // return { src: src, yt_id: yt_id };
 })
