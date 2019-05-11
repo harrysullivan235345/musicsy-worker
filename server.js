@@ -233,7 +233,7 @@ app.get('/update_srcs', async (req, res) => {
         })
         var data = await Promise.all(data);
         var done = await update_srcs_in_db(data);
-        await sleep(390)
+        await sleep(530)
     }
 
     // return { src: src, yt_id: yt_id };
