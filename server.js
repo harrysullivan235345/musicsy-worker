@@ -83,7 +83,7 @@ mongoose.connect("mongodb://musicsy-system:CabfongAgEijIk5@ds133252.mlab.com:332
 });
 
 function sleep(millis) {
-  return new Promise(resolve => setTimeout(resolve, millis));
+    return new Promise(resolve => setTimeout(resolve, millis));
 }
 
 var db = null,
@@ -111,55 +111,55 @@ var initDb = function(callback) {
 };
 
 const extendTimeoutMiddleware = (req, res, next) => {
-  const space = ' ';
-  let isFinished = false;
-  let isDataSent = false;
+    const space = ' ';
+    let isFinished = false;
+    let isDataSent = false;
 
-  // Only extend the timeout for API requests
-  if (!req.url.includes('/api')) {
-    next();
-    return;
-  }
-
-  res.once('finish', () => {
-    isFinished = true;
-  });
-
-  res.once('end', () => {
-    isFinished = true;
-  });
-
-  res.once('close', () => {
-    isFinished = true;
-  });
-
-  res.on('data', (data) => {
-    // Look for something other than our blank space to indicate that real
-    // data is now being sent back to the client.
-    if (data !== space) {
-      isDataSent = true;
+    // Only extend the timeout for API requests
+    if (!req.url.includes('/api')) {
+        next();
+        return;
     }
-  });
 
-  const waitAndSend = () => {
-    setTimeout(() => {
-      // If the response hasn't finished and hasn't sent any data back....
-      if (!isFinished && !isDataSent) {
-        // Need to write the status code/headers if they haven't been sent yet.
-        if (!res.headersSent) {
-          res.writeHead(202);
+    res.once('finish', () => {
+        isFinished = true;
+    });
+
+    res.once('end', () => {
+        isFinished = true;
+    });
+
+    res.once('close', () => {
+        isFinished = true;
+    });
+
+    res.on('data', (data) => {
+        // Look for something other than our blank space to indicate that real
+        // data is now being sent back to the client.
+        if (data !== space) {
+            isDataSent = true;
         }
+    });
 
-        res.write(space);
+    const waitAndSend = () => {
+        setTimeout(() => {
+            // If the response hasn't finished and hasn't sent any data back....
+            if (!isFinished && !isDataSent) {
+                // Need to write the status code/headers if they haven't been sent yet.
+                if (!res.headersSent) {
+                    res.writeHead(202);
+                }
 
-        // Wait another 15 seconds
-        waitAndSend();
-      }
-    }, 15000);
-  };
+                res.write(space);
 
-  waitAndSend();
-  next();
+                // Wait another 15 seconds
+                waitAndSend();
+            }
+        }, 15000);
+    };
+
+    waitAndSend();
+    next();
 };
 
 app.use(extendTimeoutMiddleware);
@@ -262,6 +262,8 @@ app.get('/memory_usage', (req, res) => {
 });
 
 app.get('/update_srcs', async (req, res) => {
+    var _d = new Date();
+    res.json(`hi at ${_d.toString()}`);
 
     async function get_src(lyrics_url) {
         var get_url_promise = new Promise((resolve, reject) => {
@@ -305,7 +307,7 @@ app.get('/update_srcs', async (req, res) => {
 
     var tracks = await promise;
 
-    var chunked = tracks.chunk(4);
+    var chunked = tracks.chunk(2);
 
     for (var i = 0; i < chunked.length; i++) {
         var data = chunked[i].map(async (track) => {
@@ -349,10 +351,9 @@ app.get('/update_srcs', async (req, res) => {
         data = data.filter(d => d !== null);
 
         var done = await update_srcs_in_db(data);
-        await sleep(200)
+        await sleep(290)
     }
 
-    res.json('hi');
 
     // return { src: src, yt_id: yt_id };
 })
