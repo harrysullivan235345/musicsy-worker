@@ -236,6 +236,8 @@ app.get('/update_srcs', async (req, res) => {
         await sleep(530)
     }
 
+    console.log('-------------------------DOOOONNNNNNEEEEE-----------------------')
+
     // return { src: src, yt_id: yt_id };
 })
 
