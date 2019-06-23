@@ -15,6 +15,7 @@
     "morgan": "^1.7.0",
     "object-assign": "4.1.0",
     "unique-string": "*",
+    "youtube-dl": "^2.0.0",
     "ytdl-core": "*"
   },
   "engine": {

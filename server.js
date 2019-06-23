@@ -2,7 +2,7 @@
 var express = require('express'),
     app = express(),
     morgan = require('morgan'),
-    // youtube_dl = require('youtube-dl'),
+    youtubedl = require('youtube-dl'),
     os = require('os'),
     axios = require('axios'),
     fs = require('fs');
@@ -189,17 +189,11 @@ app.get('/update_srcs', async (req, res) => {
 
     async function get_src(lyrics_url) {
         var get_url_promise = new Promise((resolve, reject) => {
-            ytdl.getInfo(lyrics_url, function(err, info) {
-                var filtered = info.formats.filter((version) => {
-                    return version.container === 'm4a';
-                })
+            youtubedl.getInfo(lyrics_url, [], function(err, info) {
+              if (err) reject(err);
 
-                if (filtered.length > 0) {
-                    resolve(filtered[0].url);
-                } else {
-                    resolve(info.formats[0].url);
-                }
-            })
+              resolve(info.url);
+            });
         })
         var src = await get_url_promise;
         return src;
