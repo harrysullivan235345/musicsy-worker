@@ -4,259 +4,13 @@
 		"selected_items":
 		[
 			[
-				"sa",
-				"save_file"
-			],
-			[
-				"fo",
-				"found_open_worker"
-			],
-			[
-				"mem",
-				"memories"
-			],
-			[
-				"url",
-				"url_to_src"
-			],
-			[
-				"track",
-				"track_manager"
-			],
-			[
-				"pae",
-				"parsed"
-			],
-			[
-				"tra",
-				"track_controller"
-			],
-			[
-				"lyr",
-				"lyrics_video_process"
-			],
-			[
-				"as",
-				"artist"
-			],
-			[
-				"get",
-				"get_lyrics_video_url"
-			],
-			[
-				"trak",
-				"track_manager"
-			],
-			[
-				"tr",
-				"track_name"
-			],
-			[
-				"spl",
-				"split_into_parts"
-			],
-			[
-				"re",
-				"replace"
-			],
-			[
-				"art",
-				"artist_regexp"
-			],
-			[
-				"stad",
-				"standard_results"
-			],
-			[
-				"cu",
-				"current_page"
-			],
-			[
-				"res",
-				"result"
-			],
-			[
-				"a_s",
-				"a_search_process"
-			],
-			[
-				"sea",
-				"search_combinations"
-			],
-			[
 				"for",
 				"for\tfor (…) {…}"
-			],
-			[
-				"set",
-				"set_search_query"
-			],
-			[
-				"searc",
-				"search_query"
-			],
-			[
-				"sear",
-				"search_harder"
-			],
-			[
-				"search",
-				"search_bar"
-			],
-			[
-				"se",
-				"search_manager"
-			],
-			[
-				"d_",
-				"d_search_process"
-			],
-			[
-				"stand",
-				"standard_results"
-			],
-			[
-				"fea",
-				"featured_result"
-			],
-			[
-				"stan",
-				"standard_results"
-			],
-			[
-				"justicy",
-				"justify-content-center"
-			],
-			[
-				"overl",
-				"overlay_needed"
-			],
-			[
-				"over",
-				"overlay_needed"
-			],
-			[
-				"border",
-				"border-radius\tproperty"
-			],
-			[
-				"bakc",
-				"background-color\tproperty"
-			],
-			[
-				"left",
-				"left_loc"
-			],
-			[
-				"top",
-				"top_loc"
-			],
-			[
-				"set_",
-				"set_focus"
-			],
-			[
-				"co",
-				"coords"
-			],
-			[
-				"Pla",
-				"Playlist_table"
-			],
-			[
-				"back",
-				"background-color\tproperty"
-			],
-			[
-				"pla",
-				"placeholder"
-			],
-			[
-				"ply",
-				"playlist-table"
-			],
-			[
-				"play",
-				"playlist-table"
-			],
-			[
-				"text",
-				"text-decoration\tproperty"
-			],
-			[
-				"font",
-				"font-size\tproperty"
-			],
-			[
-				"cat",
-				"categories"
-			],
-			[
-				"ca",
-				"category"
-			],
-			[
-				"field",
-				"field_key"
-			],
-			[
-				"fied",
-				"field_key"
-			],
-			[
-				"vald",
-				"validate"
-			],
-			[
-				"ma",
-				"matches"
-			],
-			[
-				"cri",
-				"criteria"
-			],
-			[
-				"con",
-				"confirm_password"
-			],
-			[
-				"d-",
-				"d-none"
-			],
-			[
-				"pro",
-				"profile"
-			],
-			[
-				"lo",
-				"logged_in"
-			],
-			[
-				"fu",
-				"function"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "server.js",
-			"settings":
-			{
-				"buffer_size": 5913,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "save_file.js",
-			"settings":
-			{
-				"buffer_size": 1549,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -270,23 +24,51 @@
 		"selected_items":
 		[
 			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"rmeove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"remvoe",
+				"Package Control: Remove Package"
+			],
+			[
 				"insta",
 				"Package Control: Install Package"
 			],
 			[
-				"reind",
-				"Indentation: Reindent Lines"
+				"remve",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
 			],
 			[
 				"remove",
 				"Package Control: Remove Package"
 			],
 			[
-				"rmeov",
+				"remoe",
 				"Package Control: Remove Package"
 			],
 			[
-				"remov",
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"rempve",
 				"Package Control: Remove Package"
 			]
 		],
@@ -294,7 +76,7 @@
 	},
 	"console":
 	{
-		"height": 206.0,
+		"height": 185.0,
 		"history":
 		[
 		]
@@ -308,73 +90,43 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/adity/Desktop/Programs/musicsy-worker"
+	],
 	"file_history":
 	[
-		"/C/Users/adity/Desktop/Programs/musicsy-worker/package.json",
-		"/C/Users/adity/Desktop/Programs/musicsy-worker/public/holder.txt",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/processes/track/lyrics_video.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/package.json",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/processes/track/y_search.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/search.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/store/search_bar.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/routes/api/search.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/managers/track/search.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/pages/viewer/playlist/_id.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/pages/viewer/track/_id.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/components/Navbar.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/components/searchDropdown.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/track.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/processes/track/g_search.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/processes/track/a_search.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/routes/api/track.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/config/keys.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/pages/index.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/assets/css/navbar.css",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/processes/track/d_search.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/routes/api.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/layouts/default.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/store/page.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/store/page",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/pages/login.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/classes/Form.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/store/playlist.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/components/Audioplayer.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/components/Playlist.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/components/README.md",
-		"/C/Users/adity/AppData/Roaming/Sublime Text 3/Packages/HTMLBeautify/HTMLBeautify.sublime-settings",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/routes/api/auth.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/middleware/not_authenticated.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/middleware/profile.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/middleware/authenticated.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/routes/api/profile.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/auth.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/services/auth.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/pages/sign_up.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/pages/profile.vue",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/index.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/strategies/google.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/strategies/local.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/config/passport.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/store/profile.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/assets/js/profile.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/nuxt.config.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/services/profile.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/server/controllers/profile.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/plugins/axios.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/store/login.js",
-		"/C/Users/adity/Desktop/Programs/musicsy-2.0/node_modules/express/lib/response.js",
+		"/C/Users/adity/go/src/github.com/harrysullivan/haabit-server-2/config/local.json",
+		"/C/Users/adity/go/src/github.com/harrysullivan/haabit-server-2/app/utils/db/db.go",
+		"/C/Users/adity/Desktop/tmp/raytracinginoneweekend/vec3.h",
+		"/C/Users/adity/Desktop/tmp/raytracinginoneweekend/main.cc",
+		"/C/Users/adity/Desktop/Blender/Add Ons/typewriter/Typewriter.py",
+		"/C/Users/adity/Desktop/Blender/Add Ons/BlenderQ/blenderq.py",
+		"/C/Users/adity/go/src/github.com/harrysullivan/haabit-server-2/main.go",
+		"/C/Users/adity/go/src/github.com/harrysullivan/haabit-server-2/app/utils/error/error.go",
+		"/C/Users/adity/go/src/github.com/harrysullivan/haabit-server-2/app/utils/config/config.go",
+		"/C/Users/adity/go/src/github.com/harrysullivan/haabit-server-2/README.md",
+		"/C/Users/adity/Desktop/Programs/Haabit/Server 2/config/local.json",
+		"/C/Users/adity/Desktop/Programs/Haabit/Server/services/auth.go",
+		"/C/Users/adity/Desktop/Programs/Haabit/Server/auth/login.go",
+		"/C/Users/adity/Desktop/Programs/Haabit/Server/services/user.go",
+		"/C/Users/adity/Desktop/School/IB Math SL 2/IA/Fractals/Code/isolate white.js",
+		"/C/Users/adity/Desktop/School/IB Math SL 2/IA/Fractals/Code/package.json",
+		"/C/Users/adity/AppData/Roaming/Sublime Text 3/Packages/IntelliDocs/IntelliDocs.sublime-settings",
+		"/C/Users/adity/Desktop/School/IB Math SL 2/IA/Fractals/Code/example module.js",
 		"/C/Users/adity/AppData/Roaming/Sublime Text 3/Packages/Terminal/Terminal.sublime-settings",
-		"/C/Users/adity/AppData/Roaming/Sublime Text 3/Packages/Terminal/package-metadata.json",
-		"/C/Users/adity/AppData/Roaming/Sublime Text 3/Packages/Terminal/messages.json",
-		"/C/Users/adity/Desktop/Programs/DigiCats/Extension/cat-data.json"
+		"/C/Users/adity/AppData/Roaming/Sublime Text 3/Packages/Terminal/Default (Windows).sublime-keymap",
+		"/C/Users/adity/Desktop/School/IB Math SL 2/IA/Fractals/Code/package-lock.json",
+		"/C/Users/adity/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/adity/Desktop/School/IB Math SL 2/IA/Fractals/Code/Usage.txt"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 31.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 116.0,
 		"where_history":
 		[
 		]
@@ -398,88 +150,21 @@
 		"whole_word": false,
 		"wrap": true
 	},
-	"folders":
-	[
-		{
-			"path": "."
-		}
-	],
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "server.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5913,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4790,
-								4790
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3556.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "save_file.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1549,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								50,
-								50
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 31.0
 	},
 	"input":
 	{
-		"height": 48.0
+		"height": 44.0
 	},
 	"layout":
 	{
@@ -512,7 +197,7 @@
 	"project": "musicsy-worker.sublime-workspace",
 	"replace":
 	{
-		"height": 64.0
+		"height": 58.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -530,10 +215,6 @@
 		"last_filter": "",
 		"selected_items":
 		[
-			[
-				"",
-				"C:\\Users\\adity\\Desktop\\Programs\\musicsy-2.0\\musicsy 2.0.sublime-project"
-			]
 		],
 		"width": 380.0
 	},
@@ -554,7 +235,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 240.0,
+	"side_bar_width": 265.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

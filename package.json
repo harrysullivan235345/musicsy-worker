@@ -16,6 +16,7 @@
     "object-assign": "4.1.0",
     "sleep-promise": "^8.0.1",
     "unique-string": "*",
+    "youtube-dl": "^2.0.0",
     "ytdl-core": "*"
   },
   "engine": {
