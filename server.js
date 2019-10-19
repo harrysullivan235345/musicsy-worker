@@ -311,7 +311,9 @@ app.get('/update_srcs', async (req, res) => {
                     tags: track.tags,
                     thumbnail: track.thumbnail,
                     is_explicit: track.is_explicit
-                })
+                });
+                
+                console.log("THIS HAS BEEN A BAD VIDEO", track);
 
                 var track_id = xhr.data.track._id;
                 var newly_added_track = await Track.findById(track_id);
