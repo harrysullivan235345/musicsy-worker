@@ -218,15 +218,17 @@ app.get('/update_srcs', async (req, res) => {
     var chunked = tracks.chunk(1);
 
     for (var i = 0; i < chunked.length; i++) {
-        var data = chunked[i].map(async (track) => {
-            var src = await get_src(`https://www.youtube.com/watch?v=${track.yt_id}`);
-            return {
-                src: src,
-                id: track._id
-            }
-        })
-        var data = await Promise.all(data);
-        var done = await update_srcs_in_db(data);
+        try {
+            var data = chunked[i].map(async (track) => {
+                var src = await get_src(`https://www.youtube.com/watch?v=${track.yt_id}`);
+                return {
+                    src: src,
+                    id: track._id
+                }
+            })
+            var data = await Promise.all(data);
+            var done = await update_srcs_in_db(data);
+        } catch (e) {}
         await sleep(1500)
         if (i % 3 === 0) console.log(`'Finished #${i}`)
     }
