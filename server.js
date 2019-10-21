@@ -300,11 +300,13 @@ app.get('/update_srcs', async (req, res) => {
 
     for (var i = 0; i < chunked.length; i++) {
         var data = chunked[i].map(async (track) => {
-            var src = await get_src(`https://www.youtube.com/watch?v=${track.yt_id}`);
-            await sleep(420)
-            var clean_src = await get_src(`https://www.youtube.com/watch?v=${track.clean_yt_id}`);
-
-            if (src === null || clean_src === null) {
+            var src = "";
+            var clean_src = "";
+            try {
+                src = await get_src(`https://www.youtube.com/watch?v=${track.yt_id}`);
+                await sleep(420)
+                clean_src = await get_src(`https://www.youtube.com/watch?v=${track.clean_yt_id}`);
+            } catch (e) {
                 var xhr = await axios.post('https://musicsy.herokuapp.com/api/track/add', {
                     track_name: track.track_name,
                     artist: track.artist,
