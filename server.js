@@ -227,7 +227,7 @@ app.get('/update_srcs', async (req, res) => {
         })
         var data = await Promise.all(data);
         var done = await update_srcs_in_db(data);
-        await sleep(530)
+        await sleep(1500)
         if (i % 3 === 0) console.log(`'Finished #${i}`)
     }
 
